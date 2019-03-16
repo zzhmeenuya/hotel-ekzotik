@@ -3,50 +3,77 @@
 $method = $_SERVER['REQUEST_METHOD'];
 
 
+
+$project_name = 'Hotel-Ekzotik';
+
+$admin_email  = 'Pyth.01-on@yandex.ru, zmeu.kostya@mail.ru';
+
+$form_subject = 'Поступила новая заявка на бронирование номер с сайта "Hotel-Ekzotik"';
+
+$from = 'Pyth.01-on@yandex.ru';
+
+
+
 //Script Foreach
+
 $c = true;
+
 if ( $method === 'POST' ) {
 
-	// $project_name = trim($_POST["project_name"]);
-	// $admin_email  = trim($_POST["admin_email"]);
-	// $form_subject = trim($_POST["form_subject"]);
-
-	$project_name = 'Малахит';
-	$admin_email  = 'Pyth.01-on@yandex.ru';
-	$form_subject = 'Забронировать номер';
 
 	foreach ( $_POST as $key => $value ) {
-		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
+
+		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" && $key != "captcha" ) {
+
 			$message .= "
+
 			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
+
 				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
+
 				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
+
 			</tr>
+
 			";
+
 		}
+
 	}
+
 } else if ( $method === 'GET' ) {
 
-	// $project_name = trim($_GET["project_name"]);
-	// $admin_email  = trim($_GET["admin_email"]);
-	// $form_subject = trim($_GET["form_subject"]);
-
-	$project_name = 'Малахит';
-	$admin_email  = 'Pyth.01-on@yandex.ru';
-	$form_subject = 'Забронировать номер';
 
 	foreach ( $_GET as $key => $value ) {
-		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
+
+		if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" && $key != "captcha" ) {
+
 			$message .= "
+
 			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
+
 				<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
+
 				<td style='padding: 10px; border: #e9e9e9 1px solid;'>$value</td>
+
 			</tr>
+
 			";
+
 		}
+
 	}
+
 }
+
+
 
 $message = "<table style='width: 100%;'>$message</table>";
 
-mail($admin_email, $form_subject, $message, "From: $project_name <$admin_email>" . "\r\n" . "Reply-To: $admin_email" . "\r\n" . "X-Mailer: PHP/" . phpversion() . "\r\n" . "Content-type: text/html; charset=\"utf-8\"");
+$headers = "From: $project_name <$from>" . "\n" .
+ "Reply-To: $admin_email" . "\n" .
+ "X-Mailer: PHP/" . phpversion() . "\n" .
+ "Content-type: text/html; charset=\"utf-8\"";
+
+mail($admin_email, $form_subject, $message, $headers);
+
