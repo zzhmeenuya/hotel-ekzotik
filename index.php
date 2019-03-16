@@ -531,8 +531,6 @@ $_SESSION['RandomSumImg'] = $RandomSumImg;
 					<div class="section__content-container section-reserve-room__content-container">
 						<form class="form-reserve-room row justify-content-center	">
 							<div class="form-reserve-room__input-hidden">
-								<div class="d-none"><?php echo $_SESSION['Random1']; ?> : <?php echo $_SESSION['Random2']; ?></div>
-								<input type="hidden" id="captchaServer" value="<?php echo $_SESSION['captcha']; ?>">
 								<input type="hidden" id="captchaClient">
 							</div>
 							<div class="col-12 col-md-6 form-reserve-room__input-group">
