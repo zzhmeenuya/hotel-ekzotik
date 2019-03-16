@@ -1,0 +1,286 @@
+@import "vars"
+
+
+/*==========  Desktop First  ==========*/
+
+// ≥1200px
++media-breakpoint-down(lg)
+	.header
+		min-height: 600px
+	.header__menu 
+		li 
+			a
+				font-size: em(12)
+				padding: 0 10px
+
+// ≥992px
++media-breakpoint-down(md)
+	.section-price.section 
+		.section-price__title
+			font-size: em(40)
+	.section-price__subtitle
+		font-size: em(30)
+
+	.header
+		&__logo
+			max-width: 100px
+			margin-top: em(20)
+		&__content 
+			h2
+				font-size: em(50)
+
+	.comfort
+		&__title
+			font-size: em(21)
+		&__description
+			font-size: em(17)
+
+	.room__title
+		font-size: em(26)
+	.header__menu
+		padding-top: 15px
+		height: 200%
+		background-color: #333
+		position: fixed
+		top: 0
+		left: 0
+		max-width: 220px
+		z-index: 9999
+		transition: all .30s ease
+		li
+			display: block
+			a
+				padding: 0 20px
+				height: 35px
+				line-height: 35px
+		&.d-mobile-none
+			left: -220px
+	.header__content
+		h1
+			font-size: 62px
+		h3
+			font-size: em(40)
+	.section
+		h2
+			font-size: 42px
+
+	.table__title
+		h3
+			font-size: em(30)
+
+// ≥768px
++media-breakpoint-down(sm)
+	.section-price.section 
+		.section-price__title
+			font-size: em(30)
+	.section-price__subtitle
+		font-size: em(20)
+
+	.section-price__table
+		overflow-x: scroll
+	.table__table
+		min-width: 730px
+
+	.header
+		&__logo
+			max-width: 100px
+		&__content 
+			h2
+				font-size: em(40)
+				margin-bottom: em(20)
+			h3 
+				font-size: em(30)
+
+	.header
+		min-height: 500px
+	.section-maps
+		height: 520px
+	.section-reserve-room
+		&__overlay
+			padding: 70px 0
+		&__title-container
+			margin-bottom: em(40)
+	.form-reserve-room
+		&__input-group
+			margin-bottom: em(30)
+			&:last-child
+				margin-bottom: 0
+			input
+				height: 50px
+				font-size: em(17)
+		&__button-container
+			margin-top: em(5)
+		&__btn
+			font-size: em(14)
+			height: 50px
+			padding: 0 20px
+		&__input-info
+			font-size: em(15)
+
+	.section-reserve-room__title-container
+		p
+			font-size: em(20)
+
+	.section-comforts
+		&__title-container
+			p
+				font-size: em(20)
+
+	.comfort
+		&__title
+			font-size: em(19)
+		&__description
+			font-size: em(15)
+
+	.room__slider
+		margin-bottom: em(30)
+	.header__content
+		h1
+			font-size: 52px
+	.section-about-hotel
+		&__contact-info
+			margin-bottom: 30px
+	.section
+		padding: 70px 0
+		h2
+			font-size: 32px
+
+	.section-our-rooms
+		.section__title-container
+			margin-bottom: 70px
+
+	.section-gallery
+		&__gallery-column
+			margin-bottom: 30px
+			&:last-child
+				margin-bottom: 0
+
+	.table__title
+		h3
+			font-size: em(25)
+
+	.section-video
+		.section__content-container
+			margin-top: em(40)
+
+// ≥576px
++media-breakpoint-down(xs)
+	.section-price.section 
+		.section-price__title
+			font-size: em(20)
+	.section-price__subtitle
+		font-size: em(15)
+
+	.table__table
+		min-width: 500px
+
+	.section-contact__contact
+		a
+			font-size: em(19)
+
+	.header__arrow
+		bottom: em(20)
+
+	.header
+		&__logo
+			max-width: 90px
+			margin-top: 0
+			margin-bottom: em(10)
+		&__content 
+			h2
+				font-size: em(30)
+			h3
+				font-size: em(21)
+
+	.swiper-button
+		height: 30px
+		width: 30px
+	.swiper-button-prev
+		left: 5px
+	.swiper-button-next
+		right: 5px
+
+	.section-gallery
+		&__title-container
+			p
+				margin-bottom: em(40)
+	.section-maps
+		height: 480px
+	.section-reserve-room__title-container
+		p
+			font-size: em(17)
+
+	.section-gallery__title-container
+		p
+			font-size: em(17)
+
+	.section-our-rooms
+		.section__title-container
+			p
+				font-size: em(17)
+
+	.section-comforts
+		&__title-container
+			p
+				font-size: em(17)
+
+	.section-about-hotel__description
+		p
+			font-size: em(13)
+
+	.header__contact-info
+		p,a
+			font-size: em(13)
+
+	.comfort
+		&__title
+			font-size: em(17)
+		&__description
+			font-size: em(15)
+
+	.header__content
+		h1
+			font-size: 32px
+	.contact-info-container
+		flex-direction: column
+	.header__contact-info
+		margin-right: 0
+		margin-bottom: 15px
+		margin-left: 40px
+
+	.section
+		h2
+			font-size: 22px
+
+	.container2
+		max-width: 540px
+
+	.table__title
+		h3
+			font-size: em(20)
+
+	.table
+		.table__cell
+			padding: 0
+			font-size: em(12)
+
+	.section-price__description-container
+		p
+			font-size: em(11)
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
++media-breakpoint-up(sm)
+	
+
+// ≤768px
++media-breakpoint-up(md)
+	.form-reserve-room__captcha
+		margin-top: em(30)
+
+// ≤992px
++media-breakpoint-up(lg)
+
+// ≤1200px
++media-breakpoint-up(xl)

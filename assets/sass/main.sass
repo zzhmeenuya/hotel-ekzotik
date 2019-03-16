@@ -1,0 +1,740 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+@import "_mixins/em"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+*
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+
+p
+	margin-bottom: 0
+
+html, body
+	width: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $Intro-Book
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+.overlay
+	background-color: rgba(#000, .6)
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: -100px
+	z-index: 999
+	height: 200%
+	width: 100%
+	&.hidden
+		display: none
+
+.overflow-hidden
+	overflow: hidden
+
+h1, h2, h3, h4, h5, h6
+	margin-bottom: 0
+
+.placeholder-tooltip
+	color: #fff
+	font-family: serif
+	position: fixed
+
+.text-left
+	text-align: left
+
+// preloader
+@import "preloader.scss"
+.preloader
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background-color: #fff
+	z-index: 9999
+	opacity: 1
+	height: 200%
+	.preloader-container
+		position: fixed
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+.scroll-top
+	position: fixed
+	bottom: 15px
+	right: 15px
+	background-color: rgba($accent2, .7)
+	width: 40px
+	height: 40px
+	line-height: 40px
+	text-align: center
+	border-radius: 50%
+	display: table
+	cursor: pointer
+	z-index: 999
+	i
+		color: rgba($text_btn, .8)
+		font-size: 30px
+		line-height: 1em
+		display: table-cell
+		vertical-align: middle
+
+// header
+.header
+	height: 100vh
+	min-height: 700px
+	position: relative
+	&__header
+		flex-grow: 1
+	&__content
+		flex-grow: 2
+	>.container-fluid
+		height: inherit
+		min-height: 500px
+		>.row
+			height: inherit
+			min-height: 500px
+	&__menu
+		li
+			display: inline-block
+			a
+				display: block
+				color: #fff
+				text-transform: uppercase
+				height: 30px
+				font-size: .8em
+				padding: 0 15px
+				line-height: 30px
+				font-family: $Intro-Bold
+				font-weight: regular
+	&__header
+		padding-top: 20px
+	&__menu
+		ul
+			padding: 0
+			margin: 0
+	&__contact-info
+		margin-right: 40px
+	&__content
+		text-align: center
+		h1
+			font-size: em(70)
+			color: #fff
+			text-transform: uppercase
+			margin-bottom: .8em
+			font-family: $Intro-Black
+			margin-bottom: 0
+			margin: 0
+			font-weight: bold
+		h2
+			color: #fff
+			font-size: em(70)
+			font-family: $Intro-Book
+			font-weight: 100
+			margin-bottom: 100px
+			line-height: 1em
+		h3
+			color: #fff
+			font-size: em(50)
+			line-height: 1em
+			font-family: $Intro-Bold
+			font-weight: regular
+			text-transform: uppercase
+
+	&__logo
+		max-width: 170px
+
+	address
+		margin-bottom: 0
+		color: #fff
+
+.contact-info
+	a
+		color: #fff
+
+.nowrap
+	flex-wrap: nowrap
+
+.contact-info
+	text-align: right
+	p
+		font-size: 14px
+		line-height: 18px
+		color: #fff
+
+.contact-info-container
+	display: flex
+	justify-content: flex-end
+	align-items: center
+
+.btn
+	background-color: $accent2
+	font-size: 14px
+	text-transform: uppercase
+	height: 40px
+	line-height: 40px
+	padding: 0 15px
+	color: $text_btn
+	display: inline-block
+	border-radius: 6px
+	transition: all .30s ease
+	font-family: $Intro-Bold
+	font-weight: regular
+	&:hover
+		background-color: darken($accent2, 5%)
+		text-decoration: none
+		color: $text_btn
+
+.header__arrow
+	position: absolute
+	bottom: 37px
+	left: 50%
+	animation: levitation 2s ease-in-out infinite alternate none running
+
+.header-arrow
+	color: #fff
+	font-size: 20px
+	background: url(../img/header/arrow.png) no-repeat center / contain
+	min-height: 40px
+	min-width: 40px
+	cursor: pointer
+
+// toggel menu mobile
+.toggle-mnu
+	display: block
+	width: 28px
+	height: 28px
+	margin-top: 14px
+	span:after, span:before
+		content: ""
+		position: absolute
+		left: 0
+		top: 9px
+	span:after
+		top: 18px
+	span
+		position: relative
+		display: block
+	span, span:after, span:before
+		width: 100%
+		height: 2px
+		background-color: #fff
+		transition: all 0.3s
+		backface-visibility: hidden
+		border-radius: 2px
+	&.on span
+		background-color: transparent
+	&.on span:before
+		transform: rotate(45deg) translate(-1px, 0px)
+	&.on span:after
+		transform: rotate(-45deg) translate(6px, -7px)
+// toggel menu mobile -END
+
+.toggle-mnu
+	transition: all 0.1s ease
+	&.on
+		left: unset
+		right: 15px
+		z-index: 9999
+		position: fixed
+
+.toggle_posa
+	background-color: rgba($accent2, .7)
+	padding: 10px 7px
+	position: fixed
+	top: 15px
+	left: 15px
+	right: -15px
+	transition: all 1s ease
+	margin: 0
+	height: 40px
+	width: 40px
+	border-radius: 50%
+	z-index: 999
+
+.header__menu
+	&.active-mobile
+		display: block
+// header -END
+
+@keyframes levitation
+	0%
+		transform: translateX(-50%) translateY(0px)
+	50%
+		transform: translateX(-50%) translateY(6px)
+	100%
+		transform: translateX(-50%) translateY(0px)
+
+// section about the hotel
+.section
+	padding: 100px 0 100px 0
+	h2
+		font-size: 52px
+		font-family: $Intro-Bold
+		font-weight: bold
+		line-height: 1em
+		margin-bottom: 0.5em
+	&__left
+	&contact-info
+		p
+			font-size: 16px
+			font-family: $Intro-Book
+			color: $text-grey
+	&_title-container
+		p 
+			font-family: $Intro-Book
+			font-weight: regular
+
+.section-about-hotel
+	&__description
+		p
+			font-size: 15px
+			font-family: $Intro-Book
+			color: $text
+			&:first-child
+				margin-bottom: 15px
+	&__contact-info
+	&__contact-info
+		a
+			color: $text
+// section about the hotel -END
+
+// section rooms
+.swiper-container
+	position: relative
+.swiper-slide
+	img
+		max-width: 100%
+
+.swiper-button
+	position: absolute
+	top: 50%
+	width: 40px
+	height: 40px
+	line-height: 40px
+	text-align: center
+	background-color: rgba(#fff, .64)
+	z-index: 99
+	border-radius: 50%
+	transform: translateY(-50%)
+	cursor: pointer
+	display: flex
+	justify-content: center
+	align-items: center
+
+.swiper-button-next
+	right: 15px
+.swiper-button-prev
+	left: 15px
+
+.section_backgroun-grey
+	background-color: $background-grey
+
+.section-our-rooms
+	.section__title-container
+		margin-bottom: 140px
+		h2
+			margin-bottom: 1em
+		p
+			font-size: 22px
+			color: $text-grey
+
+.room
+	&__info
+	&__title
+		font-size: em(36)
+		color: #000
+		font-family: $Intro-Bold-Alt
+		line-height: 1em
+		margin-bottom: 20px
+	&__number-of-persons
+		font-size: em(16)
+		color: $text-grey
+		line-height: 1em
+		margin-bottom: em(30, 16)
+		font-family: $Intro-Book
+		font-wieght: regular
+	&__price
+		line-height: 1em
+		color: #000
+		font-size: em(24)
+		font-family: $Intro-Bold
+		margin-bottom: em(30, 24)
+	&__description
+		font-family: $Intro-Book
+		font-wieght: regular
+		font-size: em(14)
+		margin-bottom: em(20, 14)
+		color: #000
+
+.section-our-rooms__room
+	margin-bottom: em(60)
+	&:last-child
+		margin-bottom: 0
+// section rooms -END
+
+
+// section gallery
+.section-gallery
+	&__gallery-container
+		img
+			width: 100%
+	&__title-container
+		h2
+			margin-bottom: em(50, 52)
+		p
+			margin-bottom: em(100)
+	&__gallery-row
+		margin-bottom: 30px
+		&:last-child
+			margin-bottom: 0
+	&__gallery-column-left
+		a
+			margin-bottom: 30px
+			display: block
+			&:last-child
+				margin-bottom: 0
+
+.mfp-image-holder
+	.mfp-content
+		transition: all 1s ease
+
+// gallery animation
+@import "gallery"
+// ==================
+// section gallery -END
+// ==================
+
+
+
+// ==================
+// section price -END
+// ==================
+.table
+	&__table
+		display: table
+		border-collapse: collapse
+	&__row
+		display: table-row
+	&__cell
+		display: table-cell
+		border: 1px solid #fff
+		vertical-align: middle
+		text-align: center
+		font-family: $default-font
+		font-size: 16px
+		color: #fff
+	&__title
+		margin-bottom: em(25)
+		text-align: center
+		h3
+			font-family: $Intro-Bold
+			font-size: em(36)
+
+	.table
+		&__cell
+			padding: 5px
+		&__th
+			padding: 2px
+			
+		&__table
+			width: 100%
+
+.section-price__table-conatainer
+	.section-price__table
+		margin-bottom: 70px
+		&:last-child
+			margin-bottom: 15px
+
+.section-price__description-container
+
+.section_bgc-grey
+	background-color: $background-grey
+
+.section-price
+	&__description-container
+		text-align: center
+		p
+			font-size: em(12)
+// ==================
+// section price -END
+// ==================
+
+
+// ==================
+// section comfort
+// ==================
+.section-comforts
+	&__title-container
+		text-align: center
+		margin-bottom: em(100)
+		p
+			font-size: em(22)
+			font-family: $Intro-Book
+			color: $text-grey
+
+.comfort
+	&__image
+		margin-right: em(30)
+	&__title
+		font-size: em(22)
+		font-family: $Intro-Bold
+	&__description
+		color: $text-grey
+		font-size: em(18)
+		font-family: $Intro-Book
+
+.section-comforts__comfort
+	margin-bottom: em(55)
+	&:last-child
+		margin-bottom: 0
+// ==================
+// section comfort -END
+// ==================
+
+
+
+// ==================
+// section reserve-room
+// ==================
+.section-reserve-room
+	position: relative
+	padding: 0
+	&__overlay
+		padding: 170px 0 190px 0
+		background-color: rgba(#006666, .5)
+	&__title-container
+		text-align: center
+		margin-bottom: em(65)
+		h2, p
+			color: #fff
+		h2
+			font-size: em(48)
+			margin-bottom: em(25, 48)
+		p
+			font-size: em(30)
+			line-height: 1.1em
+
+.section.section_padding-0
+	padding: 0!important
+
+.form-reserve-room
+	&__input-group
+		label
+			visibility: hidden
+			display: none
+		input
+			height: 72px
+			padding: 0 15px
+			width: 100%
+			border-radius: 6px
+			font-size: em(24)
+			&::placeholder
+				color: $text-grey
+				transition: all .30s ease
+			&:focus
+				&::placeholder
+					color: transparent
+	&__button-container
+		margin-top: em(52)
+	&__btn
+		height: 72px
+		padding: 0 45px
+		font-size: em(24)
+		cursor: pointer
+		border: none
+		i
+			margin-left: em(10)
+			animation: rotate 1s linear 0s infinite normal
+	&__input-info
+		color: #fff
+		position: absolute
+		top: -30px
+		right: 15px
+		span
+			color: red
+			font-size: em(20)
+	&__info
+		color: #fff
+		text-align: center
+		margin-top: em(30)
+		span
+			color: red
+			font-size: em(20)
+
+@keyframes rotate
+	0%
+		transform: rotate(0)
+	100%
+		transform: rotate(360deg)
+
+#aspm
+	color: #fff
+	line-height: 1em
+	margin-top: .5em
+	font-size: 17px
+
+.form-reserve-room__captcha-title
+	color: #fff
+	margin-top: em(10)
+	text-align: left
+// ==================
+// section reserve-room -END
+// ==================
+
+
+
+// ==================
+// section contact
+// ==================
+.line
+	width: 100px
+	height: 1px
+	background-color: $text-grey
+	display: inline-block
+
+.section-contact
+	&__line-container
+		margin-bottom: em(50)
+	&__contact
+		text-align: center
+		display: flex
+		flex-flow: column wrap
+		margin-bottom: em(40)
+		a
+			color: #000
+			font-size: em(22)
+			display: inline-block
+	&__social
+		text-align: center
+		a
+			display: inline-block
+			color: #fff
+			background-color: $accent2
+			width: 30px
+			height: 30px
+			text-align: center
+			line-height: 30px
+			border-radius: 50%
+			margin: 0 em(2)
+
+// ==================
+// section contact -END
+// ==================
+
+
+
+// ==================
+// section maps
+// ==================
+.section-maps
+	height: 600px
+// ==================
+// section maps -END
+// ==================
+
+
+
+// ==================
+// section video
+// ==================
+.thumb-wrap
+	position: relative
+	padding-bottom: 56.25% // задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%)
+	padding-top: 30px
+	height: 0
+	overflow: hidden
+	iframe
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+// ==================
+// section video -END
+// ==================
+
+
+.section__bgc-blue
+	background-color: $s-bgc-blue
+	color: #fff
+	a, p
+		color: #fff
+
+.section-about-hotel
+	address
+		margin: 0
+
+.section-video
+	.swiper-button
+		position: static
+		background-color: $accent2
+		color: $text_btn
+		top: unset
+		left: unset
+		right: unset
+		transform: unset
+
+.section-video-slide__button-container
+	margin-top: em(15)
+	justify-content: space-between
+
+.section-contact__social 
+	a
+		color: $text_btn
+
+.section-price
+	&__title-conatiner
+		margin-bottom: em(30)
+		text-align: center
+	&__subtitle
+		font-family: $Intro-Book
+		font-weight: 200
+		font-size: em(42)
+
+.section-price.section
+	.section-price__title
+		font: em(60) $Intro-Bold
+		margin: 0
+
+
+
+
+
+@import "media" // Always at the end
