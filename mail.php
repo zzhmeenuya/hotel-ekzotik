@@ -3,9 +3,10 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 
 $project_name = 'Hotel-Ekzotik';
-$admin_email  = 'Pyth.01-on@yandex.ru, zmeu.kostya@mail.ru';
+$admin_email  = 'zmeu.kostya@mail.ru';
 $form_subject = 'Поступила новая заявка на бронирование номер с сайта "Hotel-Ekzotik"';
-$from = 'zakaz@hotel-ekzotik.ru';
+$from = 'hotel-ekzotik@yandex.ru';
+// $from = 'Pyth.01-on@yandex.ru';
 
 
 //Script Foreach
@@ -36,7 +37,6 @@ if ( $method === 'POST' ) {
 $message = "<table style='width: 100%;'>$message</table>";
 
 $headers = "From: $project_name <$from>" . "\n" .
-	"Reply-To: $admin_email" . "\n" .
 	"X-Mailer: PHP/" . phpversion() . "\n" .
 	"Content-type: text/html; charset=\"utf-8\"";
 

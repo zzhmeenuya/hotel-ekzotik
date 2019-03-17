@@ -131,7 +131,29 @@ var captcha_respons = 0;
 			setTimeout(
 				function () {
 					window.location.reload();
-				}, 4000);
+				}, 5000);
+
+		}).fail(function(){
+
+			// уберает показ ошибок
+			$('.form-reserve-room').find('.form-reserve-room__input-group').find('input[name]').removeClass('error');
+			$('.form-reserve-room').find('.form-reserve-room__input-group').find('.form-reserve-room__info').html('');
+			// показывает сообщение ошибки отправки
+			formInfo.removeClass('info_acces');
+			formInfo.addClass('info_error');
+			setTimeout(
+				function () {
+					formInfo.html('<p>Ошибка отправки формы! Сейчас страница перезагрузится. <span>*</span></p>');
+					formBtnSybmit.html('Забронировать').removeClass('disabled-btn');
+					$('.form-reserve-room input').removeAttr('readonly');
+					formBtnSybmit.removeAttr('readonly');
+					th.trigger("reset");
+				}, 1000);
+
+			setTimeout(
+				function () {
+					window.location.reload();
+				}, 5000);
 
 		});
 		return false;
