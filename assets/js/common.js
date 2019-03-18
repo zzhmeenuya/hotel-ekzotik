@@ -1,6 +1,8 @@
+
 var captcha_respons = 0;
 
 (function ($) {
+
 
 	// CAPTCHA AJAX ПРОВЕРКА
 	function captchaAjaxValid(){
@@ -226,12 +228,7 @@ var captcha_respons = 0;
 	});
 	// menu auto scroll to section -END
 
-	$(window).on('load', function () {
-	});
-
 	$(document).ready(function () {
-
-		// $('.main-slider').slick();
 
 		// preloader
 		var preloader =  $('.preloader'),
@@ -271,7 +268,7 @@ var captcha_respons = 0;
 		var mySwiper = new Swiper('.section-room-slider', {
 			// Optional parameters
 			direction: 'horizontal',
-			loop: true,
+			loop: false,
 			navigation: {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',
@@ -281,7 +278,7 @@ var captcha_respons = 0;
 		var sectionVideoSlider = new Swiper('.section-video-slider', {
 			// Optional parameters
 			direction: 'horizontal',
-			loop: true,
+			loop: false,
 			navigation: {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',
@@ -340,3 +337,30 @@ var captcha_respons = 0;
 
 
 })(jQuery);
+
+
+var bLazy = new Blazy({
+	success: function(element){
+		element.classList.add('animated', 'fadeIn');
+  }
+});
+
+
+var YaMapsShown = false; 
+
+$(window).scroll(function() {
+  if (!YaMapsShown){
+   if($(window).scrollTop() + $(window).height() > $(document).height() - 1000) {      
+    showYaMaps();
+    YaMapsShown = true;
+   }
+  }
+});
+
+function showYaMaps(){
+ var script   = document.createElement("script");
+ script.type  = "text/javascript";
+ script.src   = "https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae84366e904546743b6b3d21f836c3308dce14bd63f7f97242c5202802ae0eb75&amp;width=100%25&amp;lang=ru_RU&amp;scroll=false";
+ document.getElementById("YaMaps").appendChild(script);
+}
+
