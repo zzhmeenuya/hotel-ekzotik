@@ -26,22 +26,24 @@ $_SESSION['RandomSumImg'] = $RandomSumImg;
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- Template meta SEO -->
-	<meta name="description" content="">
+	<meta name="description" content="Все номера отделаны в домашнем уютном стиле и не вызывают ощущения что вы находитесь в отеле.">
 	<meta name="keywords" content="Отель, Сочи, Отель Hotel-Ekzotik, Hotel-Ekzotik, Адлер">
+
 	<meta property="og:title" content="Hotel-Ekzotik">
 	<meta property="og:type" content="website">
 	<meta property="og:description" content="Все номера отделаны в домашнем уютном стиле и не вызывают ощущения что вы находитесь в отеле.">
-	<meta property="og:url" content="">
+	<meta property="og:url" content="http://hotel-ekzotik.ru/">
 
 	<meta itemprop="name" content="Отель Hotel-Ekzotik" />
 	<meta itemprop="description" content="Все номера отделаны в домашнем уютном стиле и не вызывают ощущения что вы находитесь в отеле." />
-	<meta itemprop="image" content="assets/dest/img/header/header-background.png" />
+	
 
 	<meta name="robots" content="index, follow">
 	<!-- Template meta SEO -END -->
 
 	<!-- Template Basic Images Start -->
 	<meta property="og:image" content="assets/dest/img/header/header-background.png">
+	<meta itemprop="image" content="assets/dest/img/header/header-background.png" />
 	<link rel="icon" href="assets/dest/img/favicon/favicon.ico">
 	<link rel="apple-touch-icon" sizes="180x180" href="assets/dest/img/favicon/apple-touch-icon-180x180.png">
 	<!-- Template Basic Images End -->
