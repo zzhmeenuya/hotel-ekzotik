@@ -22,12 +22,12 @@ gulp.task('browser-sync', function() {
 });
 
 // Compress Task
-gulp.task('compress', function() {
-	gulp.src('assets/img/**/*')
+gulp.task( 'compress' , function() {
+	gulp.src('assets/dest/img/**/*')
 	.pipe(imagemin([
 		imagemin.gifsicle({interlaced: true}),
 		imagemin.jpegtran({progressive: true}),
-		imagemin.optipng({optimizationLevel: 5}),
+		imagemin.optipng({optimizationLevel: 10}),
 		imagemin.svgo({
 			plugins: [
 					{removeViewBox: true},
@@ -50,11 +50,10 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
 	return gulp.src([
-		// 'assets/libs/jquery/dist/jquery.min.js',
+		'assets/libs/jquery/dist/jquery.min.js',
 		'assets/libs/swiper/dist/js/swiper.min.js',
 		'assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
 		'assets/libs/input-mask/dist/jquery.mask.min.js',
-		'assets/libs/md5/md5.min.js',
 		'assets/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
@@ -90,17 +89,17 @@ if( gulpVersion == 3 ){
 		gulp.watch( ['assets/libs/**/*.js', 'assets/js/common.js'], ['scripts'] );
 		gulp.watch( ['*.html', '*.php'], ['code'] );
 	});
-	gulp.task('default',['watch']);
+	gulp.task( 'default',['watch'] );
 
 }
 
 if( gulpVersion == 4 ){
 
-	gulp.task('watch', function() {
+	gulp.task( 'watch', function() {
 		gulp.watch( 'assets/'+syntax+'/**/*.'+syntax+'', gulp.parallel('styles') );
 		gulp.watch( ['assets/libs/**/*.js', 'assets/js/common.js'], gulp.parallel('scripts') );
 		gulp.watch( ['*.html', '*.php'], gulp.parallel('code') );
 	});
-	gulp.task('default', gulp.parallel('watch', 'styles', 'scripts', 'browser-sync'));
+	gulp.task( 'default', gulp.parallel('watch', 'styles', 'scripts', 'browser-sync') );
 
 }

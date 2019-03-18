@@ -3,10 +3,9 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 
 $project_name = 'Hotel-Ekzotik';
-$admin_email  = 'zmeu.kostya@mail.ru';
+$admin_email  = 'infas@mail.ru';
 $form_subject = 'Поступила новая заявка на бронирование номер с сайта "Hotel-Ekzotik"';
 $from = 'hotel-ekzotik@yandex.ru';
-// $from = 'Pyth.01-on@yandex.ru';
 
 
 //Script Foreach
@@ -41,4 +40,3 @@ $headers = "From: $project_name <$from>" . "\n" .
 	"Content-type: text/html; charset=\"utf-8\"";
 
 mail($admin_email, $form_subject, $message, $headers);
-?>
